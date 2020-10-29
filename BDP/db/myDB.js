@@ -13,8 +13,6 @@ function MyDB() {
   VALUES ($CompanyName)
 `;
 
-    // const promise = promisify(db.run.bind(db));
-
     return new Promise((resolve, reject) => {
       db.run(query, delivery_service, function (err) {
         if (err) {
@@ -24,13 +22,6 @@ function MyDB() {
         resolve(this.lastID);
       });
     }).finally(() => db.close());
-
-    // return promise(query, car)
-    //   .then(function (res) {
-    //     console.log("Inserted", res, this, db.lastInsertRowId);
-    //     return db.lastInsertRowId;
-    //   })
-    //   .finally(() => db.close());
   }
 
   async function getDeliveryServices(res) {

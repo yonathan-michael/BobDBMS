@@ -10,8 +10,6 @@ router.get("/", function (req, res, next) {
 
 router.get("/deliveryservices", async (req, res, next) => {
   try {
-    // const delivery_service = req.query.delivery_service || "";
-
     const deliveryservices = await myDB.getDeliveryServices();
 
     res.render("delivery_service", {

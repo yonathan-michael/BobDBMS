@@ -1,5 +1,3 @@
-// my db back up
-
 var sqlite3 = require("sqlite3").verbose();
 const util = require("util");
 

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1 Locations
+
+	ul
+		each l in locations
+			li= "Location " + l.LocationID + " Address: " + l.Address

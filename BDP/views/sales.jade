@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1 Sales
+
+	ul
+		each s in sales
+			li= "Sale ID: " + s.SaleID + " Date: " + s.SaleDate + " Donut ID: " + s.DonutID + " " + "Quantity: " + s.Quantity 

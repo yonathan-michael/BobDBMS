@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1 Donuts Available by Location
+
+	ul
+		each l in locationDonuts
+			li= l.Address + " | " + l.Name

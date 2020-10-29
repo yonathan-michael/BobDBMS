@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1 Employees
+
+	ul
+		each e in employees
+			li= e.FirstName + " " + e.LastName

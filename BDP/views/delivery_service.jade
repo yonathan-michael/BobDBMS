@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1 Active Delivery Services
+
+
+  h2 Create Delivery Service
+  form(action="/deliveryservices/create" method="POST")
+    label Company Name:
+      input(type="text" name="$CompanyName")
+    br
+
+    button(type="submit") Add Delivery Service
+
+  h3
+  form(action="/deliveryservices/delete" method="POST")
+      label Type in the ID and select delete.
+        input(type="text" name="$DeliveryID")
+      br
+
+      button(type="submit") delete  
+
+  ul
+    each d in deliveryservices
+      li= d.CompanyName + " ID: " + d.DeliveryID
+
+      

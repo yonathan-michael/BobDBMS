@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1 Donuts
+
+	ul
+		each d in donuts
+			li= d.Name + "; Price: " + d.Price

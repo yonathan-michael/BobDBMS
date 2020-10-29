@@ -3,6 +3,37 @@ extends layout
 block content
 	h1 Donuts
 
+
+	h2 Create Donut
+		form(action="/donuts/create" method="POST")
+			label Donut Name:
+				input(type="text" name="$Name")
+			label  Type in the Price.
+				input(type="text" name="$Price")    
+			br
+
+			button(type="submit") Add Donut
+
+	h3
+		form(action="/donuts/delete" method="POST")
+			label Type in the ID and select delete.
+				input(type="text" name="$DonutID")
+			br
+
+			button(type="submit") Delete
+
+	h4
+		form(action="/donuts/update" method="POST")
+			label Type in the ID.
+				input(type="text" name="$DonutID")
+			label  Type in the new Donut name.
+				input(type="text" name="$Name")
+			label  Type in the new Price.
+				input(type="text" name="$Price")      
+			br
+
+			button(type="submit") Update    
+
 	ul
 		each d in donuts
-			li= d.Name + "; Price: " + d.Price
+			li= d.Name + " Price: " + d.Price + " ID: " + d.DonutID

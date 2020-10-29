@@ -7,6 +7,8 @@ function MyDB() {
   const myDb = {};
 
   async function insertDeliveryService(delivery_service) {
+    console.log(delivery_service);
+
     const db = new sqlite3.Database(dbName);
 
     const query = `INSERT INTO delivery_service(CompanyName)
@@ -46,9 +48,21 @@ function MyDB() {
     return promise(query, DeliveryID).finally(() => db.close());
   }
 
+  async function UpdateDeliveryService(DeliveryID, CompanyName) {
+    console.log("Connecting to the database on ", dbName);
+    const db = new sqlite3.Database(dbName);
+
+    const query = `UPDATE delivery_service SET DeliveryID = $DeliveryID, CompanyName = $CompanyName WHERE DeliveryID = $DeliveryID;`;
+
+    const promise = promisify(db.run.bind(db));
+
+    return promise(query, DeliveryID, CompanyName).finally(() => db.close());
+  }
+
   myDb.insertDeliveryService = insertDeliveryService;
   myDb.getDeliveryServices = getDeliveryServices;
   myDb.DeleteDeliveryService = DeleteDeliveryService;
+  myDb.UpdateDeliveryService = UpdateDeliveryService;
 
   return myDb;
 }

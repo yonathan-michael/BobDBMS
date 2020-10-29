@@ -18,7 +18,17 @@ block content
         input(type="text" name="$DeliveryID")
       br
 
-      button(type="submit") delete  
+      button(type="submit") Delete
+
+  h4
+  form(action="/deliveryservices/update" method="POST")
+      label Type in the ID.
+        input(type="text" name="$DeliveryID")
+      label  Type in the company name.
+        input(type="text" name="$CompanyName")    
+      br
+
+      button(type="submit") Update    
 
   ul
     each d in deliveryservices

@@ -46,4 +46,24 @@ router.post("/deliveryservices/delete", async (req, res, next) => {
   }
 });
 
+router.post("/deliveryservices/update", async (req, res, next) => {
+  try {
+    console.log(req.body["$DeliveryID"]);
+    console.log(req.body["$CompanyName"]);
+
+    const delivery_serviceID = req.body["$DeliveryID"];
+    const companyName = req.body["$CompanyName"];
+
+    console.log("updating", req.body);
+    const deliveryID = await myDB.UpdateDeliveryService(
+      delivery_serviceID,
+      companyName
+    );
+
+    res.redirect("/deliveryservices");
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
